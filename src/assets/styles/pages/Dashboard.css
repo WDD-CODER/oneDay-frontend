@@ -56,11 +56,6 @@
 
     .dashboard-content {
 
-        & .pei {
-            display: grid;
-            /* grid-template-rows: 40px 1fr 40px; */
-        }
-
         .data-list {
 
             &.small {
@@ -79,8 +74,6 @@
                 gap: 16px;
                 padding: 16px;
                 transition: width 200ms ease-in-out;
-
-                /* height: 100%; */
             }
 
 
@@ -128,7 +121,6 @@
 
                 &.big {
                     flex: 1 1 calc(50% - 16px);
-                    min-height: 350px;
                 }
 
                 .data-header {
@@ -169,7 +161,6 @@
 
             }
 
-            /* padding: var(--spacing-small) 0; */
         }
 
     }
@@ -180,63 +171,76 @@
     position: relative;
     display: flex;
     padding-inline: 20px;
-    /* gap: 10%; */
-    /* grid-auto-flow: row; */
-    /* grid-template-columns:1fr 1fr; */
     align-self: center;
 
     .pai-chart-container canvas {
+        min-width: 120px;
         width: 80% !important;
         height: 80% !important;
     }
 
     .pai-chart-container {
-        /* grid-column: 2; */
         width: 100%;
         aspect-ratio: 1;
         height: auto;
         justify-items: center;
         align-content: center;
-        /* grid-column: 2; */
-        /* padding: 1em; */
-        /* width: 600px; */
     }
 
     .labels {
-        /* grid-column: 3; */
         display: grid;
         place-content: center;
         gap: 18px;
 
         .label {
             display: flex;
-
+            min-width: 0;
             place-items: center;
             gap: 10px;
 
             .circle {
-                /* display: flex; */
+                min-width: 14px;
                 width: 14px;
                 height: 14px;
                 border-radius: 2vh;
-                /* background-color: red; */
             }
         }
+    }
+}
 
+@media (max-width: 810px) {
+    .custom-pie-chart {
+        display: grid;
+    }
+
+    .dashboard {
+        & .dashboard-content {
+            & .data-list {
+                &.small {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                &.big {
+                    display: grid;
+                    grid-auto-flow: row;
+                    grid-template-columns: auto;
+                }
+            }
+        }
+    }
+
+    & .dashboard-content {
+        & .data-list {
+            & .data-item {
+                .data-content {
+                    place-items: center;
+                }
+            }
+        }
     }
 
 }
-
-/* @media (min-width: 750px) {
-  .dashboard-content {
-    .data-list {
-      .small {
-        display: none;
-        background-color: red;
-      }
-    }
-  }
-} */
 
 
 

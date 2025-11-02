@@ -122,7 +122,7 @@ export function Dashboard(props) {
                                 <header className="data-header flex  text-overflow">
                                     <span className="data-title">Tasks by Owner</span>
                                 </header>
-                                <div className="data-content chart">
+                                <div className="data-content bar">
                                     {dashboardData ? (
                                         <BarChart
                                             data={dashboardData}

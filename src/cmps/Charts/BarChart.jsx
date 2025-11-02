@@ -36,7 +36,7 @@ export function BarChart({ data }) {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: false },
           title: {
@@ -45,7 +45,7 @@ export function BarChart({ data }) {
             position: 'left',
             color: 'rgb(103, 104, 121 , 50%)',
             fullSize: true,
-            rotation: 90,
+            // rotation: 90,
             font: {
               size: 10,
             },
