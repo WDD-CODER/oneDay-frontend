@@ -47,16 +47,16 @@ export function FileUpload({ info, onUpdate }) {
 
         try {
             var base64 = await toBase64(file)
-            
+
             fileItem = {
-                title: file.name,
+                title: file?.name,
                 file: {
-                    name: file.name,
-                    type: file.type,
+                    name: file?.name,
+                    type: file?.type,
                     dataUrl: base64
                 }
             }
-            
+
         } catch (error) {
             console.log(' Problem uploading file to storage', error)
         }
@@ -114,14 +114,14 @@ export function FileUpload({ info, onUpdate }) {
         ev.stopPropagation()
         setIsPreviewOpen(false)
         const content = <FullScreenContainer
-            imgSrc={taskFileToShow[0]?.file.dataUrl}
-            imgTitle={taskFileToShow[0]?.file.name}
+            imgSrc={taskFileToShow[0]?.file?.dataUrl}
+            imgTitle={taskFileToShow[0]?.file?.name}
         />
         onSetPopUp(content)
     }
     const files = [{
-        imgUrl: taskFileToShow[0]?.file.dataUrl,
-        fullname: taskFileToShow[0]?.file.name,
+        imgUrl: taskFileToShow[0]?.file?.dataUrl,
+        fullname: taskFileToShow[0]?.file?.name,
         id: makeId()
     }]
     const file = taskFileToShow[0]?.file ? files : false
@@ -145,7 +145,7 @@ export function FileUpload({ info, onUpdate }) {
             {isDragging && dragDataType}
 
             {!isDragging &&
-                <section className={`empty-file-img-container ${!!taskFileToShow.length}`}
+                <section className={`empty-file-img-container ${!!taskFileToShow?.length}`}
                     ref={previewRef}
                     onMouseEnter={onHoverFile}
                     onMouseLeave={clearHover}>
@@ -154,7 +154,7 @@ export function FileUpload({ info, onUpdate }) {
                         <span className="round-plus-icon"></span>
                     </span>
                     <img
-                        className='empty-file-img' src={taskFileToShow[0]?.file.dataUrl || "/img/emptyFile.svg"}
+                        className='empty-file-img' src={taskFileToShow[0]?.file?.dataUrl || "/img/emptyFile.svg"}
                         onClick={_onShowPopUp}
                         alt="Empty File Image" />
 
@@ -187,8 +187,8 @@ export function FileUpload({ info, onUpdate }) {
                         onMouseEnter={() => clearTimeout(hoverRef.current)}
                         onMouseLeave={clearHover}>
                         <FilePreview
-                            imgSrc={taskFileToShow[0]?.file.dataUrl}
-                            imgTitle={taskFileToShow[0]?.file.name} />
+                            imgSrc={taskFileToShow[0]?.file?.dataUrl}
+                            imgTitle={taskFileToShow[0]?.file?.name} />
                     </div>
                 </FloatingContainerCmp>
             )}
