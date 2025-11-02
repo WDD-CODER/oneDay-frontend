@@ -1,6 +1,7 @@
 .invite-user-wrapper {
     width: 605px;
     overflow-x: hidden;
+    margin-block: var(--spacing-medium);
 
     .invite-user {
         display: flex;
@@ -19,7 +20,7 @@
             padding-bottom: var(--spacing-large);
             padding-top: var(--spacing-small);
             /* padding-inline: var(--spacing-xl); */
-            margin-block-start: var(--spacing-medium);
+
 
 
             font: var(--font-h2-medium);
